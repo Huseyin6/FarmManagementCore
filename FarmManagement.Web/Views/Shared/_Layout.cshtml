@@ -1,0 +1,230 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - FarmManagement</title>
+
+    <environment include="Development">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
+        <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="~/lib/bootstrap-select/css/bootstrap-select.min.css" />
+        <link rel="stylesheet" href="~/lib/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.min.css" />
+        <link rel="stylesheet" href="~/lib/bootstrap-datepicker/css/bootstrap-datepicker.min.css" />
+        <link rel="stylesheet" href="~/lib/node-waves/waves.min.css" />
+        <link rel="stylesheet" href="~/lib/animate-css/animate.min.css" />
+        <link rel="stylesheet" href="~/lib/morrisjs/morris.css" />
+
+        <link rel="stylesheet" href="~/css/style.css" />
+        <link rel="stylesheet" href="~/css/site.css" />
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+    </environment>
+</head>
+<body class="theme-deep-orange">
+    <div class="page-loader-wrapper">
+        <div class="loader">
+            <div class="preloader">
+                <div class="spinner-layer pl-red">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+            </div>
+            <p>Please wait...</p>
+        </div>
+    </div>
+    <nav class="navbar">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                @*<img src="~/Content/images/cow2.png" alt="Alternate Text" style="float:left;margin-top:5px;margin-right:5px" />*@
+                <a href="/Home/" class="navbar-brand">Çiftlik Yönetimi</a>
+            </div>
+        </div>
+    </nav>
+    <section>
+        <aside id="leftsidebar" class="sidebar">
+            <div class="menu">
+                <ul class="list">
+                    <li class="header">FİNANSAL İŞLEMLER</li>
+                    <li class="active">
+                        <a href="@Url.Action("Index","Home")">
+                            <i class="material-icons" style="color:#FF6347">home</i>
+                            <span style="color:#FF6347">Home</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle" style="color:#1E90FF">
+                            <i class="material-icons">trending_up</i>
+                            <span style="color:#1E90FF">Gelir</span>
+                        </a>
+
+                        <ul class="ml-menu">
+                            <li>
+                                <a href="@Url.Action("Table","Income")" style="color:#1E90FF">Tablo</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Statistic","Income")" style="color:#1E90FF">İstatistik</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle" style="color:#DC143C">
+                            <i class="material-icons">trending_down</i>
+                            <span style="color:#DC143C">Gider</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li>
+                                <a href="@Url.Action("Table","Expense")" style="color:#DC143C">Tablo</a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Statistic","Expense")" style="color:#DC143C">İstatistik</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="header">YÖNETİMSEL İŞLEMLER</li>
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">settings</i>
+                            <span>Hayvan Yönetimi</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li>
+                                <a href="javascript:void(0);" class="menu-toggle">
+                                    <span>İnekler</span>
+                                </a>
+                                <ul class="ml-menu">
+                                    <li>
+                                        <a href="@Url.Action("Index","Cows")">Çifliktekiler</a>
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("Index","Cows",new {state=2 })">Satılanlar</a>
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("Index","Cows",new {state=3 })">Ölenler</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);" class="menu-toggle">
+                                    <span>Düveler</span>
+                                </a>
+                                <ul class="ml-menu">
+                                    <li>
+                                        <a href="@Url.Action("Index","Heifers")">Çifliktekiler</a>
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("Index","Heifers",new {state=2 })">Satılanlar</a>
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("Index","Heifers",new {state=3 })">Ölenler</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);" class="menu-toggle">
+                                    <span>Buzağılar</span>
+                                </a>
+                                <ul class="ml-menu">
+                                    <li>
+                                        <a href="@Url.Action("Index","Calves")">Çifliktekiler</a>
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("Index","Calves",new {state=2 })">Satılanlar</a>
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("Index","Calves",new {state=3 })">Ölenler</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);" class="menu-toggle">
+                                    <span>Danalar</span>
+                                </a>
+                                <ul class="ml-menu">
+                                    <li>
+                                        <a href="@Url.Action("Index","Steers")">Çifliktekiler</a>
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("Index","Steers",new {state=2 })">Satılanlar</a>
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("Index","Steers",new {state=3 })">Ölenler</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+            </div>
+            <div class="legal">
+                <div>
+                    <p>Github: <strong><a href="https://github.com/Huseyin6" target="_blank">@@Huseyin6</a></strong> </p>
+                </div>
+                <div class="copyright">
+                    <p>Template: <strong>AdminBsb &copy; @DateTime.Now.Year</strong> </p>
+                </div>
+            </div>
+        </aside>
+    </section>
+    <section class="content" style="margin-top:25px">
+        <div class="container-fluid">
+            @RenderBody()
+        </div>
+    </section>
+    
+    <environment include="Development">
+        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="~/lib/bootstrap-select/js/bootstrap-select.min.js"></script>
+        <script src="~/lib/jquery-slimscroll/jquery.slimscroll.js"></script>
+        <script src="~/lib/node-waves/waves.min.js"></script>
+        <script src="~/lib/jquery-datatable/jquery.dataTables.js"></script>
+        <script src="~/lib/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
+
+        <script src="~/lib/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+        <script src="~/lib/bootstrap-datepicker/locales/bootstrap-datepicker.tr.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/3.3.4/js/bootstrap-switch.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+
+        <script src="~/js/js/admin.js"></script>
+        <script src="~/js/bootstrap-confirmation.js"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+        <script src="https://www.chartjs.org/samples/latest/utils.js"></script>
+
+        <script src="~/lib/jquery-datatable/jquery.dataTables.js"></script>
+        <script src="~/js/js/pages/ui/modals.js"></script>
+        <script src="~/js/js/pages/forms/basic-form-elements.js"></script>
+        <script src="~/js/js/pages/index.js"></script>
+
+
+    </environment>
+    <environment exclude="Development">
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"
+                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                asp-fallback-test="window.jQuery"
+                crossorigin="anonymous"
+                integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT">
+        </script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
+                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+                crossorigin="anonymous"
+                integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd">
+        </script>
+        <script src="~/js/site.min.js" asp-append-version="true"></script>
+    </environment>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
