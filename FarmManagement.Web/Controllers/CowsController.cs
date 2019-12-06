@@ -22,8 +22,8 @@ namespace FarmManagement.Web.Controllers
         }
         public ActionResult Index()
         {
-            var model = db.GetMany(m=>m.CattleTypeId==1);
-            return View();
+            var model = db.GetAll();
+            return View(model);
         }
 
 
