@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Huseyin\\Desktop\\FarmManagement\\FarmManagement.Data\\FarmManagement.Data.csproj": {}
+    "C:\\Users\\Huseyin\\Desktop\\FarmManagementWithHeroku\\FarmManagement.Data\\FarmManagement.Data.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Huseyin\\Desktop\\FarmManagement\\FarmManagement.Data\\FarmManagement.Data.csproj": {
+    "C:\\Users\\Huseyin\\Desktop\\FarmManagementWithHeroku\\FarmManagement.Data\\FarmManagement.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Huseyin\\Desktop\\FarmManagement\\FarmManagement.Data\\FarmManagement.Data.csproj",
+        "projectUniqueName": "C:\\Users\\Huseyin\\Desktop\\FarmManagementWithHeroku\\FarmManagement.Data\\FarmManagement.Data.csproj",
         "projectName": "FarmManagement.Data",
-        "projectPath": "C:\\Users\\Huseyin\\Desktop\\FarmManagement\\FarmManagement.Data\\FarmManagement.Data.csproj",
+        "projectPath": "C:\\Users\\Huseyin\\Desktop\\FarmManagementWithHeroku\\FarmManagement.Data\\FarmManagement.Data.csproj",
         "packagesPath": "C:\\Users\\Huseyin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Huseyin\\Desktop\\FarmManagement\\FarmManagement.Data\\obj\\",
+        "outputPath": "C:\\Users\\Huseyin\\Desktop\\FarmManagementWithHeroku\\FarmManagement.Data\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
